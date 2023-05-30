@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Leap Year and Horary Sign</title>
+
+    <style>
+        body {
+            /*style format for the font, background-color and image*/
+
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            font-size: 50px;
+            background-color: #13F2CB;
+            text-align: center;
+        }
+
+            
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //accept year from the user
+        var year = prompt('Enter a year:');
+        //check whether the input year is leap year or common year and display 
+        if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+            document.write(year + "<br/>");
+            document.write("Leap Year");
+        } else {
+            document.write(year + "<br/>");
+            document.write("Common Year");
+        }
+
+        // function used calculate and return horary signs
+        function getHorarySign(year) {
+
+            // declares an array to store horary signs
+            var horarySigns = [
+                "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse",
+                "Goat", "Monkey", "Rooster", "Dog", "Pig"
+            ];
+
+            //calculate for horary signs and stores in horarysignIndex variable
+            var horarySignIndex = (year - 4) % 12;
+
+            return horarySigns[horarySignIndex];
+        }
+
+        var horarySign = getHorarySign(year);
+        document.write("<br/>" + horarySign);
+        // Add image for horary sign
+        var imgSrc = horarySign.toLowerCase() + ".jpeg"; // Assuming the image file is named after the horary sign
+        document.write("<br/>");
+        document.write("<img src='" + imgSrc + "' alt='" + horarySign + "' />");
+    </script>
+</body>
+
+</html>
